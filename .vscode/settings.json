@@ -21,5 +21,10 @@
   },
   "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "files.exclude": {
+    "**/.cache": true,
+    "**/.cursor": true,
+    "~/**": true
   }
 }
