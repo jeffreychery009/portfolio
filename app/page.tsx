@@ -1,65 +1,86 @@
+"use client";
+
 import Image from "next/image";
+import Link from "next/link";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
+  const projects = [
+    {
+      name: "NoteFlow",
+      description: "AI-powered note-taking app",
+      link: "/noteflow",
+    },
+    {
+      name: "Cherry",
+      description: "All-in-one Investing Tracking App",
+      link: "/cherry",
+    },
+  ];
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between bg-white px-16 py-32 sm:items-start dark:bg-black">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl leading-10 font-semibold tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className="mx-auto mt-28 flex w-full max-w-[600px] items-center justify-center px-8 pb-16">
+      <div className="flex w-full flex-col gap-4">
+        <div className="flex w-full items-center justify-between">
+          <h1 className="text-xl font-semibold">Jeffrey Chery</h1>
+          <div className="flex items-center gap-4">
+            <Badge asChild>
+              <Link href="/about">About Me</Link>
+            </Badge>
+            <div className="flex items-center gap-0">
+              <Button variant="ghost" size="icon" className="p-0.5">
+                <Link href="https://x.com/jeffrey_ch009">
+                  <Image
+                    src="/x.svg"
+                    alt="X"
+                    width={16}
+                    height={16}
+                    className="dark:invert"
+                  />
+                </Link>
+              </Button>
+              <Button variant="ghost" size="icon" className="p-0.5">
+                <Link href="https://www.linkedin.com/in/jeffreychery/">
+                  <Image
+                    src="/linkedin.svg"
+                    alt="LinkedIn"
+                    width={16}
+                    height={16}
+                    className="dark:invert"
+                  />
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+        <p className="leading-relaxed">
+          I&apos;m a software engineer and current college student at Broward
+          College. I am currently pursuing a Bachelor&apos; degree in Computer
+          Science. I am an intern at AdaptAI, an AI consulting company based in
+          Miami, FL and currently assisting in building software solutions for
+          clients.
+        </p>
+        <div className="mt-8 flex flex-col gap-2">
+          <p>Personal Projects:</p>
+          <ul className="ml-4 list-disc">
+            {projects.map((project) => (
+              <li className="mb-2" key={project.name}>
+                <Link className="underline" href={project.link}>
+                  {project.name}
+                </Link>{" "}
+                - {project.description}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="mt-8 flex flex-col gap-2">
+          <p className="leading-relaxed">
+            If you would like to contact me to work on a project or collaborate
+            on something, feel free to reach out to me on X or LinkedIn.
+            Leta&apos; build something great together!
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="bg-foreground text-background flex h-12 w-full items-center justify-center gap-2 rounded-full px-5 transition-colors hover:bg-[#383838] md:w-[158px] dark:hover:bg-[#ccc]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] md:w-[158px] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </div>
     </div>
   );
 }
