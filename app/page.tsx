@@ -77,7 +77,7 @@ export default function Home() {
           <p className="leading-relaxed">
             If you would like to contact me to work on a project or collaborate
             on something, feel free to reach out to me on X or LinkedIn.
-            Leta&apos; build something great together!
+            Let&apos;s build something great together!
           </p>
         </div>
       </div>
